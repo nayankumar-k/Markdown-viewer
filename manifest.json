@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Markdown Preview",
+  "version": "1.0.0",
+  "description": "View markdown files beautifully rendered directly in your browser with syntax highlighting and emoji support",
+  "author": "Nayan",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": [
+    "file://*/*.md",
+    "http://*/*.md",
+    "https://*/*.md"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/markdown-it.min.js", "lib/markdown-it-emoji.min.js", "lib/highlight.min.js", "lib/atom-one-dark.min.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["file://*/*.md", "http://*/*.md", "https://*/*.md"],
+      "js": [
+        "lib/markdown-it.min.js",
+        "lib/markdown-it-emoji.min.js",
+        "lib/highlight.min.js",
+        "content-script.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_icon": "logo.png",
+    "default_title": "Markdown Preview"
+  }
+}
