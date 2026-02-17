@@ -1,22 +1,32 @@
 {
   "manifest_version": 3,
   "name": "Simple Markdown Viewer",
-  "version": "1.0.0",
-  "description": "View markdown files beautifully rendered directly in your browser with syntax highlighting and emoji support",
+  "version": "1.1.0",
+  "description": "View local markdown files beautifully rendered with syntax highlighting and emoji support",
   "author": "Nayan",
   "permissions": ["activeTab"],
   "host_permissions": [
-    "file://*/*.md"
+    "file://*/*.md",
+    "file://*/*.markdown",
+    "file://*/*.mdown",
+    "file://*/*.mkd",
+    "file://*/*.mkdn"
   ],
   "web_accessible_resources": [
     {
-      "resources": ["lib/markdown-it.min.js", "lib/markdown-it-emoji.min.js", "lib/highlight.min.js", "lib/atom-one-dark.min.css"],
-      "matches": ["<all_urls>"]
+      "resources": ["lib/*"],
+      "matches": ["file://*/*"]
     }
   ],
   "content_scripts": [
     {
-      "matches": ["file://*/*.md", "http://*/*.md", "https://*/*.md"],
+      "matches": [
+        "file://*/*.md",
+        "file://*/*.markdown",
+        "file://*/*.mdown",
+        "file://*/*.mkd",
+        "file://*/*.mkdn"
+      ],
       "js": [
         "lib/markdown-it.min.js",
         "lib/markdown-it-emoji.min.js",
