@@ -1,14 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Markdown Preview",
+  "name": "Simple Markdown Viewer",
   "version": "1.0.0",
   "description": "View markdown files beautifully rendered directly in your browser with syntax highlighting and emoji support",
   "author": "Nayan",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab"],
   "host_permissions": [
-    "file://*/*.md",
-    "http://*/*.md",
-    "https://*/*.md"
+    "file://*/*.md"
   ],
   "web_accessible_resources": [
     {
